@@ -1,0 +1,101 @@
+<script lang="ts">
+	import Toast from "@components/common/Toast.svelte";
+
+	import { show_sheet_music } from "@stores/ShowSheetMusic";
+
+	import Cookies from "js-cookie";
+	import { COOKIES } from "@config/Cookies";
+
+	import Spinner from "@components/common/Spinner.svelte";
+	import SheetMusic from "@components/SheetMusic.svelte";
+	import Piano from "@components/Piano.svelte";
+	import AppHeader from "@components/AppHeader.svelte";
+	import SoundPlayer from "@components/SoundPlayer.svelte";
+	import GithubCorner from "@components/common/GithubCorner.svelte";
+	// import StickyFooter from "@components/footer/StickyFooter.svelte";
+</script>
+
+<header
+	class="py-1 relative slide-in-from-top bg-primary-300 dark:bg-black flex h-16 space-between items-center left-0 p-0 shadow top-0 w-full z-20"
+>
+	<AppHeader />
+	<GithubCorner
+		href="https://github.com/loremdipso/piantoes"
+		position="topLeft"
+		small
+	/>
+</header>
+
+<SoundPlayer />
+
+<Toast />
+
+<main class="fade-in">
+	{#if $show_sheet_music}
+		<SheetMusic />
+	{/if}
+
+	<Piano />
+</main>
+
+<!-- <StickyFooter /> -->
+<style lang="scss">
+	:global(:root) {
+		--key-border-width: 8px;
+		--num-white-keys: initial;
+	}
+
+	:global(body) {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	main {
+		flex-grow: 1;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	// :global(a) {
+	// 	// TODO: figure out why this doesn't work
+	// 	// @apply text-blue-200;
+	// 	color: rgba(29, 142, 241, 1);
+	// }
+
+	:global(.padded-table td, th) {
+		padding: 1rem;
+	}
+
+	:global(.padded-table d:last-child, th:last-child) {
+		width: 5rem;
+	}
+
+	.slide-in-from-top {
+		animation: 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s 1 SlideDown;
+	}
+	@keyframes SlideDown {
+		0% {
+			transform: translate3d(0, -100%, 0);
+		}
+		100% {
+			transform: translateZ(0);
+		}
+	}
+
+	.fade-in {
+		animation: 1s ease-out 0s 1 FadeIn;
+	}
+	@keyframes FadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+</style>
