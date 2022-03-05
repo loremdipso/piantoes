@@ -95,7 +95,7 @@ const config = {
 			allowlistPatternsChildren: [],
 			tailwind: {
 				colors: {
-					primary: "#018786",
+					primary: "#e6487c",
 					secondary: "#7141ac",
 					error: "#cf6679",
 					success: "#4caf50",

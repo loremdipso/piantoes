@@ -1,15 +1,25 @@
 <script lang="ts">
 	import { show_sheet_music } from "@stores/ShowSheetMusic";
 
-	import Cookies from "js-cookie";
-	import { COOKIES } from "@config/Cookies";
-
 	import SheetMusic from "@components/SheetMusic.svelte";
 	import Piano from "@components/Piano.svelte";
 	import AppHeader from "@components/AppHeader.svelte";
 	import SoundPlayer from "@components/SoundPlayer.svelte";
 	import GithubCorner from "@components/common/GithubCorner.svelte";
 	import Installer from "@components/Installer.svelte";
+	import { onMount } from "svelte";
+
+	onMount(() => {
+		if (!isDebug && "serviceWorker" in navigator) {
+			window.addEventListener("load", () => {
+				navigator.serviceWorker
+					.register("./service-worker.js")
+					.then((reg) => {
+						console.log("Service worker registered.", reg);
+					});
+			});
+		}
+	});
 </script>
 
 <header
@@ -19,6 +29,7 @@
 	<GithubCorner
 		href="https://github.com/loremdipso/piantoes"
 		position="topLeft"
+		fill="#00b7ff"
 		small
 	/>
 </header>
@@ -37,6 +48,10 @@
 
 <!-- <StickyFooter /> -->
 <style lang="scss">
+	header {
+		// TODO(HACK): this is to match the github corner's height
+		min-height: 64px;
+	}
 	:global(:root) {
 		--key-border-width: 8px;
 		--num-white-keys: initial;

@@ -44,7 +44,7 @@
 	}
 
 	.key-black {
-		border: var(--key-border-width) solid black;
+		border: calc(var(--key-border-width) / 2) solid black;
 		background-color: black;
 		position: absolute;
 		width: calc((100vw / var(--num-white-keys) / 2));
