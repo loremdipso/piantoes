@@ -31,14 +31,8 @@ const config = {
 	output: getOutputOptions({
 		name: 'app',
 		sourcemap: !production,
-
-		// NOTE: iife not supported for code splitting builds
-		// format: 'iife',
-		// file: 'docs/build/bundle.js'
-
-		// es-specific config
-		format: 'es',
-		dir: 'docs/build/',
+		format: 'iife',
+		file: 'docs/build/bundle.js'
 	}),
 	plugins: [
 		production && del({ targets: 'docs/build/*' }),

@@ -7,8 +7,8 @@ const contentToCache = [
 	'/piantoes/index.html',
 	'/piantoes/global.css',
 	'/piantoes/favicon.png',
-	'/piantoes/docs/main.js',
-	'/piantoes/bundle/bundle.css',
+	'/piantoes/docs/bundle.js',
+	'/piantoes/docs/bundle.css',
 	'/piantoes/icons/icon-32.png',
 	'/piantoes/icons/icon-512.png',
 
