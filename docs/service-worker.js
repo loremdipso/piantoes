@@ -1,5 +1,3 @@
-self.importScripts('data/games.js');
-
 // Files to cache
 const cacheName = 'js13kPWA-v1';
 const contentToCache = [
@@ -9,7 +7,9 @@ const contentToCache = [
 	'/piantoes/favicon.png',
 	'/piantoes/docs/bundle.js',
 	'/piantoes/docs/bundle.css',
+
 	'/piantoes/icons/icon-32.png',
+	'/piantoes/icons/icon-192.png',
 	'/piantoes/icons/icon-512.png',
 
 	'/piantoes/resources/a3.mp3',

@@ -12,7 +12,7 @@ function create_key({ type, octave, sharp }: { type: NoteType, octave: number, s
 		octave,
 		sharp,
 		name: `${type.toString().toLocaleUpperCase()}${octave}${sharp ? "#" : ""}`,
-		audio: get_audio(`${type}${octave}${sharp ? "_sharp" : ""} `)
+		audio: get_audio(`${type}${octave}${sharp ? "_sharp" : ""}`)
 	};
 }
 
