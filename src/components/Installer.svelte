@@ -17,6 +17,18 @@
 	let deferred_prompt;
 
 	onMount(() => {
+		// install the service worker
+		if (!isDebug && "serviceWorker" in navigator) {
+			window.addEventListener("load", () => {
+				navigator.serviceWorker
+					.register("./service-worker.js")
+					.then((reg) => {
+						console.log("Service worker registered.", reg);
+					});
+			});
+		}
+
+		// see if we can install in this context
 		window.addEventListener("beforeinstallprompt", (e) => {
 			e.preventDefault();
 			deferred_prompt = e;

@@ -1,7 +1,6 @@
 // Files to cache
 const cacheName = 'piantoesSW-v1';
 const contentToCache = [
-	// './',
 	'./index.html',
 	'./global.css',
 	'./favicon.png',

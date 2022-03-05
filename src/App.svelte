@@ -7,19 +7,6 @@
 	import SoundPlayer from "@components/SoundPlayer.svelte";
 	import GithubCorner from "@components/common/GithubCorner.svelte";
 	import Installer from "@components/Installer.svelte";
-	import { onMount } from "svelte";
-
-	onMount(() => {
-		if (!isDebug && "serviceWorker" in navigator) {
-			window.addEventListener("load", () => {
-				navigator.serviceWorker
-					.register("./service-worker.js")
-					.then((reg) => {
-						console.log("Service worker registered.", reg);
-					});
-			});
-		}
-	});
 </script>
 
 <header
