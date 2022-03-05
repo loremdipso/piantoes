@@ -1,18 +1,15 @@
 <script lang="ts">
-	import Toast from "@components/common/Toast.svelte";
-
 	import { show_sheet_music } from "@stores/ShowSheetMusic";
 
 	import Cookies from "js-cookie";
 	import { COOKIES } from "@config/Cookies";
 
-	import Spinner from "@components/common/Spinner.svelte";
 	import SheetMusic from "@components/SheetMusic.svelte";
 	import Piano from "@components/Piano.svelte";
 	import AppHeader from "@components/AppHeader.svelte";
 	import SoundPlayer from "@components/SoundPlayer.svelte";
 	import GithubCorner from "@components/common/GithubCorner.svelte";
-	// import StickyFooter from "@components/footer/StickyFooter.svelte";
+	import Installer from "@components/Installer.svelte";
 </script>
 
 <header
@@ -28,14 +25,14 @@
 
 <SoundPlayer />
 
-<Toast />
-
 <main class="fade-in">
 	{#if $show_sheet_music}
 		<SheetMusic />
 	{/if}
 
 	<Piano />
+
+	<Installer />
 </main>
 
 <!-- <StickyFooter /> -->
@@ -87,7 +84,22 @@
 		}
 	}
 
-	.fade-in {
+	:global(.slide-in-from-bottom) {
+		animation: 3000ms cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s 1 SlideUp;
+	}
+	@keyframes SlideUp {
+		0% {
+			transform: translate3d(0, 100%, 0);
+		}
+		50% {
+			transform: translate3d(0, 100%, 0);
+		}
+		100% {
+			transform: translateZ(0);
+		}
+	}
+
+	:global(.fade-in) {
 		animation: 1s ease-out 0s 1 FadeIn;
 	}
 	@keyframes FadeIn {
