@@ -5,8 +5,8 @@ const contentToCache = [
 	'./index.html',
 	'./global.css',
 	'./favicon.png',
-	'./docs/bundle.js',
-	'./docs/bundle.css',
+	'./build/bundle.js',
+	'./build/bundle.css',
 
 	'./icons/icon-32.png',
 	'./icons/icon-192.png',
