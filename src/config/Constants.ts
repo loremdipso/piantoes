@@ -2,8 +2,15 @@ import type { IKey } from "interfaces";
 import { NoteType } from "interfaces";
 
 function get_audio(slug: string) {
-	const audio = new Audio(`resources/${slug}.mp3`);
-	return audio;
+	return {
+		play: () => {
+			console.log("would play audio, but this is currently disabled");
+		}
+	} as HTMLAudioElement;
+
+	// TODO(feat): get notes working again
+	// const audio = new Audio(`resources/${slug}.mp3`);
+	// return audio;
 }
 
 function create_key({ type, octave, sharp }: { type: NoteType, octave: number, sharp?: boolean }): IKey {

@@ -3814,8 +3814,8 @@ var app = (function () {
     		c: function create() {
     			img = element("img");
     			attr_dev(img, "class", "note svelte-11cpvv7");
-    			if (!src_url_equal(img.src, img_src_value = "/resources/quarter_note.svg")) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$6, 14, 4, 559);
+    			if (!src_url_equal(img.src, img_src_value = "resources/quarter_note.svg")) attr_dev(img, "src", img_src_value);
+    			add_location(img, file$6, 14, 4, 558);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -3845,7 +3845,7 @@ var app = (function () {
     		c: function create() {
     			img = element("img");
     			attr_dev(img, "class", "note svelte-11cpvv7");
-    			if (!src_url_equal(img.src, img_src_value = "/resources/sharp_quarter_note.svg")) attr_dev(img, "src", img_src_value);
+    			if (!src_url_equal(img.src, img_src_value = "resources/sharp_quarter_note.svg")) attr_dev(img, "src", img_src_value);
     			add_location(img, file$6, 12, 4, 483);
     		},
     		m: function mount(target, anchor) {
@@ -4762,8 +4762,14 @@ var app = (function () {
     }
 
     function get_audio(slug) {
-        const audio = new Audio(`resources/${slug}.mp3`);
-        return audio;
+        return {
+            play: () => {
+                console.log("would play audio, but this is currently disabled");
+            }
+        };
+        // TODO(feat): get notes working again
+        // const audio = new Audio(`resources/${slug}.mp3`);
+        // return audio;
     }
     function create_key({ type, octave, sharp }) {
         return {
@@ -4771,7 +4777,7 @@ var app = (function () {
             octave,
             sharp,
             name: `${type.toString().toLocaleUpperCase()}${octave}${sharp ? "#" : ""}`,
-            audio: get_audio(`${type}${octave}${sharp ? "_sharp" : ""}`)
+            audio: get_audio()
         };
     }
     const KEYS = [

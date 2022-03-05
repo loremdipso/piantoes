@@ -14,9 +14,9 @@
 	{#if show}
 		<div class="note-container">
 			{#if sharp}
-				<img class="note" src="/resources/sharp_quarter_note.svg" />
+				<img class="note" src="resources/sharp_quarter_note.svg" />
 			{:else}
-				<img class="note" src="/resources/quarter_note.svg" />
+				<img class="note" src="resources/quarter_note.svg" />
 			{/if}
 		</div>
 	{/if}
