@@ -1,5 +1,5 @@
 // Files to cache
-const cacheName = 'js13kPWA-v1';
+const cacheName = 'piantoesSW-v1';
 const contentToCache = [
 	'/piantoes/',
 	'/piantoes/index.html',
